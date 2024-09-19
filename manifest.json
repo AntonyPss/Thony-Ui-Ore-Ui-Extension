@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Thony Ui Ore Ui Extension",
+    "description": "Ore Ui Extension for Thony Ui Pack §2(Create by @Antony Pss)",
+    "uuid": "58e187d6-9aac-4b0f-a7f4-e166356d6055",
+    "min_engine_version": [ 1, 21, 0 ],
+    "version": [ 1, 0, 0 ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "273d8569-0b71-4c42-8af4-eab70880c8ae",
+      "version": [ 1, 0, 0 ]
+    }
+  ]
+}

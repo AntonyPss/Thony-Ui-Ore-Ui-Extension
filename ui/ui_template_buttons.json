@@ -1,0 +1,149 @@
+{
+  "namespace": "common_buttons",
+
+  //---------------------------------------------------------------------------
+  // Ore Ui Button Common
+  //---------------------------------------------------------------------------
+
+  "ore_ui_button_image": {
+    "type": "image",
+    "texture": "$ore_ui_button_texture",
+    "layer": 1
+  },
+
+  "ore_ui_button_border_image": {
+    "type": "image",
+    "texture": "textures/ui/focus_border_white",
+    "size": [ "100%", "100%" ]
+  },
+
+  "ore_ui_button_assets@common.button": {
+    "$default_button_texture|default": "textures/ui/buttons/white_button",
+    "$hover_button_texture|default": "textures/ui/buttons/white_button_hover",
+    "$pressed_button_texture|default": "textures/ui/buttons/white_button_pressed",
+    "$locked_button_texture|default": "textures/ui/buttons/white_button_locked",
+
+    "$button_type_panel": "common_buttons.ore_ui_binding_button_label",
+    "$button_state_panel|default": "common_buttons.ore_ui_button_panel"
+  },
+
+  "ore_ui_binding_button_label": {
+    "type": "label",
+    "layer": 2,
+    "text": "$button_text",
+    "color": "$text_color",
+    "$font_type|default": "default",
+    "font_type": "$font_type",
+    "font_size": "$button_font_size",
+    "$button_font_scale_factor|default": 1.0,
+    "font_scale_factor": "$button_font_scale_factor",
+    "$button_font_size|default": "normal",
+    "$new_ui_label_offset|default": "$button_offset",
+    "offset": "$new_ui_label_offset",
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "shadow": false,
+    "$button_text_size|default": [ "default", "default" ],
+    "size": "$button_text_size",
+    "$button_text_max_size|default": [ "100%", 10 ],
+    "max_size": "$button_text_max_size",
+    "$text_alignment|default": "center",
+    "text_alignment": "$text_alignment",
+    "$tts_section_header|default": "",
+    "tts_section_header": "$tts_section_header",
+    "$button_text_collection_details|default": "none",
+    "$button_text_collection_prefix|default": "",
+    "bindings": [
+      {
+        "binding_type": "$button_text_collection_details",
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_collection_prefix": "$button_text_collection_prefix"
+      },
+      {
+        "binding_type": "$button_text_binding_type",
+        "binding_condition": "$button_binding_condition",
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_name": "$button_text",
+        "binding_name_override": "$button_text"
+      }
+    ]
+  },
+
+  "ore_ui_button_panel": {
+    "type": "panel",
+
+    "$button_image|default": "common_buttons.ore_ui_button_image",
+    "$button_border_image|default": "common_buttons.ore_ui_button_border_image",
+    "$button_size_override": [ "100%", "100%" ],
+    "$button_content_size|default": [ "100% - 8px", "100% - 8px" ],
+
+    "$button_border_image_visible|default": false,
+
+    "size": "$button_size_override",
+    "controls": [
+      {
+        "button_image@$button_image": {
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "button_border_image@$button_border_image": {
+          "ignored": "(not $button_border_image_visible)",
+          "size": [ "100% + 2px", "100% + 2px" ]
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "size": "$button_content_size",
+          "controls": [
+            {
+              "button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "white_button@ore_ui_button_assets": {
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$ore_ui_button_texture": "$default_button_texture",
+          "$ore_ui_text_color": "$default_text_color",
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$button_border_image_visible": true,
+          "$ore_ui_button_texture": "$hover_button_texture",
+          "$ore_ui_text_color": "$hover_text_color",
+          "$hover_state": true,
+          "layer": 4
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$ore_ui_button_texture": "$pressed_button_texture",
+          "$ore_ui_text_color": "$pressed_text_color",
+          "$pressed_state": true,
+          "layer": 5
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$ore_ui_button_texture": "$locked_button_texture",
+          "$ore_ui_text_color": "$locked_text_color",
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  }
+}
